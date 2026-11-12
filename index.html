@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f3ed">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="A collection of articles and links from when each player became a grandmaster.">
+  <meta property="og:title" content="India’s Grandmasters">
+  <meta property="og:description" content="A collection of articles and links from when each player became a grandmaster.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="theme.css">
+  <title>India’s Grandmasters</title>
+  <script defer src="data/grandmasters.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#collection">Skip to the collection</a>
+  <div class="page-shell">
+    <header class="site-header" id="top">
+      <a class="wordmark" href="#top" aria-label="Back to top">
+        <span class="wordmark-symbol" id="wordmark-count">100</span><span class="wordmark-tail">and counting</span>
+      </a>
+      <nav class="header-nav" aria-label="Page navigation">
+        <a href="#collection">The collection</a>
+        <a href="#about">About</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="main-heading">
+        <div class="hero-label">INDIA’S GRANDMASTERS <span class="hero-label-rule" aria-hidden="true"></span> 1988–present</div>
+        <h1 id="main-heading">India’s Grandmasters</h1>
+        <p class="hero-deck">Newspaper reports and articles about the moments they became grandmasters.</p>
+      </section>
+
+      <section class="collection-section" id="collection" aria-labelledby="collection-heading">
+        <div class="collection-head">
+          <div>
+            <p class="eyebrow">In chronological order</p>
+            <h2 id="collection-heading">The collection <span class="count-text" id="headcount">/ 100</span></h2>
+          </div>
+        </div>
+
+        <div class="controls">
+          <div class="search-wrap">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="10.8" cy="10.8" r="6.6"/><path d="m16 16 4.8 4.8"/></svg>
+            <label class="sr-only" for="search">Find a grandmaster, newspaper or headline</label>
+            <input id="search" type="search" placeholder="Find a name, paper, or headline…" autocomplete="off">
+            <kbd class="search-key" aria-hidden="true">/</kbd>
+          </div>
+          <label class="decade-wrap"><span>Period</span>
+            <select id="period">
+              <option value="all">All years</option>
+              <option value="1980">1980s–90s</option>
+              <option value="2000">2000s</option>
+              <option value="2010">2010s</option>
+              <option value="2020">2020s</option>
+            </select>
+          </label>
+          <button class="clear-button" type="button" id="clear" hidden>Clear</button>
+        </div>
+        <div class="collection-meta"><p class="results-text" id="results" role="status" aria-live="polite">100 grandmasters</p><span class="results-hint">Browse in the order they became GMs</span></div>
+        <div id="cards" class="cards-grid"></div>
+        <div class="empty-state" id="no-results" hidden><h3>No matches in the collection.</h3><p>Try a different name or publication.</p></div>
+      </section>
+
+      <section class="about-section" id="about" aria-labelledby="about-heading">
+        <div class="about-content">
+          <h2 id="about-heading">About the articles</h2>
+          <p>A collection of articles and links when each player became a grandmaster.</p>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <span class="footer-title">India’s Grandmasters</span>
+      <span>Collection</span>
+      <a href="#top">Back to top ↑</a>
+    </footer>
+  </div>
+</body>
+</html>

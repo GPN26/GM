@@ -1,13 +1,5 @@
-India's Grandmasters - GitHub Upload Package
+# India’s Grandmasters
 
-Upload these items to your private GitHub repository:
-- website/
-- research/
-- README.md
+GitHub Pages-ready version with the Handwritten Notes visual theme. The card data and source URLs are identical to the existing verified archive.
 
-For hosting with Cloudflare Pages:
-- Framework preset: None
-- Build command: exit 0
-- Build output directory: website
-
-Only the website/ folder should be published.
+For a local preview, open `index.html` in a browser. For GitHub Pages, upload the contents of this folder.
