@@ -1,0 +1,32 @@
+from playwright.sync_api import sync_playwright
+from pathlib import Path
+url='http://127.0.0.1:8778/index.html'
+with sync_playwright() as p:
+    browser=p.chromium.launch(headless=True, executable_path='/usr/bin/chromium', args=['--no-sandbox'])
+    page=browser.new_page(viewport={'width':1440,'height':920},device_scale_factor=1)
+    errors=[]
+    page.on('pageerror', lambda e: errors.append(str(e)))
+    page.goto(url,wait_until='load')
+    page.locator('.gm-card').first.wait_for()
+    n=page.locator('.gm-card').count()
+    print('desktop cards',n, 'title',page.locator('h1').inner_text(),'body scroll width',page.evaluate('document.documentElement.scrollWidth'))
+    print('main sources',page.locator('.gm-card > a.article-click').count(),'extra links',page.locator('.more-list a').count())
+    page.screenshot(path='/mnt/data/Grandmasters_from_India_Desktop.png',full_page=False)
+    page.locator('.collection-section').scroll_into_view_if_needed()
+    page.screenshot(path='/mnt/data/Grandmasters_from_India_Cards.png',full_page=False)
+    page.locator('#search').fill('Sasikiran')
+    print('search count',page.locator('.gm-card').count(),page.locator('.gm-card').first.locator('.card-title').inner_text())
+    page.locator('#clear').click()
+    print('cleared',page.locator('.gm-card').count())
+    page.locator('#period').select_option('1980')
+    print('1980/90s count',page.locator('.gm-card').count())
+    page.locator('#period').select_option('all')
+    print('page errors',errors)
+    mobile=browser.new_page(viewport={'width':390,'height':844},device_scale_factor=1)
+    mobile.goto(url,wait_until='load')
+    mobile.locator('.gm-card').first.wait_for()
+    mobile.screenshot(path='/mnt/data/Grandmasters_from_India_Mobile.png',full_page=False)
+    mobile.locator('.collection-section').scroll_into_view_if_needed()
+    mobile.screenshot(path='/mnt/data/Grandmasters_from_India_Mobile_Cards.png',full_page=False)
+    print('mobile scroll vs viewport',mobile.evaluate('document.documentElement.scrollWidth'),390)
+    browser.close()
